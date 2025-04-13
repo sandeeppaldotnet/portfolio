@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandeep Pal | Senior .NET Developer</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            color: var(--dark-color);
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+        
+        .hero-contact {
+            animation: fadeInUp 1s ease 0.6s forwards;
+            opacity: 0;
+        }
+        
+        .hero-contact a {
+            color: white;
+            margin-right: 15px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-contact a:hover {
+            color: var(--light-color);
+            text-decoration: none;
+            transform: translateY(-3px);
+        }
+        
+        .hero-image {
+            animation: fadeInRight 1s ease;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+            color: var(--dark-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .section-title.center::after {
+            left: 25%;
+        }
+        
+        /* About Section */
+        .about-img {
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .about-img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Skills Section */
+        .skill-item {
+            margin-bottom: 20px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), #2980b9);
+            border-radius: 5px;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: var(--primary-color);
+            left: 20px;
+            top: 0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            left: -40px;
+            top: 25px;
+            border: 4px solid white;
+        }
+        
+        .timeline-date {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-company {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        /* Projects Section */
+        .project-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            background: white;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-img {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.05);
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .tech-badge {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        /* Contact Section */
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-control {
+            height: 50px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        
+        textarea.form-control {
+            height: auto;
+            min-height: 150px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(41, 128, 185, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 991.98px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .hero {
+                padding: 80px 0;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 2.3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-contact {
+                justify-content: center;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .timeline::before {
+                left: 10px;
+            }
+            
+            .timeline-item::before {
+                left: -30px;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Sandeep Pal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title">Sandeep Pal</h1>
+                    <p class="hero-subtitle">Senior .NET Developer with 9+ years of experience designing and delivering robust, scalable web applications.</p>
+                    <div class="d-flex hero-contact">
+                        <a href="tel:+919811799659"><i class="fas fa-phone me-2"></i> +91 9811799659</a>
+                        <a href="mailto:sandeep084991904@gmail.com"><i class="fas fa-envelope me-2"></i> sandeep084991904@gmail.com</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <img src="https://github.com/sandeeppaldotnet/portfolio/blob/main/sandeep-pal.jpg" alt="Sandeep Pal" class="img-fluid hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Professional Summary</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-right">
+                    <img src="https://github.com/sandeeppaldotnet/portfolio/blob/main/sandeep-pal.jpg" alt="Sandeep Pal" class="img-fluid about-img">
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <p>Senior .NET Developer with 9+ years of experience designing and delivering robust, scalable, and high-performance web applications. Expert in ASP.NET, MVC, .NET Core, React.js, and cloud platforms such as Azure and AWS.</p>
+                    <p>Skilled in API development, database optimization, third-party service integration, and Agile project delivery. Committed to writing clean, maintainable code and engineering efficient solutions that drive business value.</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> ASP.NET Core</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Web API Development</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Microservices</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Cloud Platforms</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Database Optimization</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Agile Delivery</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <a href="https://www.linkedin.com/in/sandeeppal/" class="btn btn-primary me-3">Hire Me</a>
+                        <a href="https://github.com/sandeeppaldotnet/portfolio/blob/main/Sandeep%20PAL%20Senior%20Dot%20Net%20Developer.pdf" class="btn btn-outline-primary">Download CV</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Core Competencies</h2>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>ASP.NET Core</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>C#</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>SQL Server</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Azure</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>React.js</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Microservices</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Entity Framework</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Docker</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h4 class="text-center mb-4">Other Technologies</h4>
+                    <div class="d-flex flex-wrap justify-content-center" data-aos="zoom-in">
+                        <span class="tech-badge m-2">MVC</span>
+                        <span class="tech-badge m-2">Web API</span>
+                        <span class="tech-badge m-2">JavaScript</span>
+                        <span class="tech-badge m-2">HTML5</span>
+                        <span class="tech-badge m-2">CSS3</span>
+                        <span class="tech-badge m-2">jQuery</span>
+                        <span class="tech-badge m-2">Bootstrap</span>
+                        <span class="tech-badge m-2">Tailwind CSS</span>
+                        <span class="tech-badge m-2">Dapper</span>
+                        <span class="tech-badge m-2">LINQ</span>
+                        <span class="tech-badge m-2">MySQL</span>
+                        <span class="tech-badge m-2">MongoDB</span>
+                        <span class="tech-badge m-2">Cosmos DB</span>
+                        <span class="tech-badge m-2">Twilio</span>
+                        <span class="tech-badge m-2">SendGrid</span>
+                        <span class="tech-badge m-2">PayPal</span>
+                        <span class="tech-badge m-2">Stripe</span>
+                        <span class="tech-badge m-2">Firebase</span>
+                        <span class="tech-badge m-2">Docker</span>
+                        <span class="tech-badge m-2">Kubernetes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-date">Nov 2021 – Present</div>
+                    <h3 class="timeline-title">Senior .NET Developer</h3>
+                    <div class="timeline-company">BR Solutions Pvt. Ltd.</div>
+                    <ul>
+                        <li>Led full-stack development of platforms like SellerChat.io, E-SWOP Kyc, MyCustomer.io, MedBotPRO, and HomeBakers.app</li>
+                        <li>Built REST/SOAP APIs, integrated payment gateways (PayPal, Paytm, Cashfree, ICICI Payment API, SMS API, Email API), and real-time communication (chat/video/audio) features</li>
+                        <li>Enhanced database performance and ensured high availability across SQL Server, MySQL, MongoDB</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-date">Sep 2021 – Nov 2021</div>
+                    <h3 class="timeline-title">Software Engineer</h3>
+                    <div class="timeline-company">MYHealthCare</div>
+                    <ul>
+                        <li>Developed backend APIs in ASP.NET Core, frontend in React.js for Hospital Information System</li>
+                        <li>Designed and implemented a Diet Management System, significantly improving patient care workflows</li>
+                        <li>Collaborated with cross-functional teams in an Agile environment</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-date">Oct 2018 – Sep 2021</div>
+                    <h3 class="timeline-title">Senior .NET Developer</h3>
+                    <div class="timeline-company">BR Solutions Pvt. Ltd.</div>
+                    <ul>
+                        <li>Contributed to projects such as Danssup, Ikioo.io, MedBotPRO</li>
+                        <li>Created scalable APIs and optimized performance in various RDBMS and NoSQL databases</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-date">Feb 2018 – Aug 2018</div>
+                    <h3 class="timeline-title">.NET Developer</h3>
+                    <div class="timeline-company">Akhil Systems Pvt. Ltd.</div>
+                    <ul>
+                        <li>Developed REST APIs and Patient Portal modules for the Miracle HIS healthcare product</li>
+                        <li>Enabled real-time appointments and report access for patients</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-date">Apr 2016 – Aug 2017</div>
+                    <h3 class="timeline-title">.NET Developer</h3>
+                    <div class="timeline-company">Cre-Innovations</div>
+                    <ul>
+                        <li>Developed APIs, dashboards, and CMS using ASP.NET Web Forms</li>
+                        <li>Managed database development, including stored procedures, triggers, and performance tuning</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-date">Jun 2014 – Apr 2016</div>
+                    <h3 class="timeline-title">Website & SEO Developer</h3>
+                    <div class="timeline-company">OSR Web Solutions</div>
+                    <ul>
+                        <li>Developed websites with HTML, CSS, JavaScript, and WordPress</li>
+                        <li>Specialized in SEO techniques and analytics, laying the foundation for a shift to full-stack development</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Key Projects</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x300/3498db/ffffff?text=Sellerchat.io" class="card-img-top project-img" alt="Sellerchat.io">
+                        <div class="card-body">
+                            <h5 class="project-title">Sellerchat.io</h5>
+                            <p>An affiliate marketing platform for e-commerce businesses with customer support chat, reward points, and product deals.</p>
+                            <div class="project-tech">
+                                <span class="tech-badge">ASP.NET Core</span>
+                                <span class="tech-badge">SQL Server</span>
+                                <span class="tech-badge">Firebase</span>
+                                <span class="tech-badge">PayPal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x300/2c3e50/ffffff?text=MyCustomer.io" class="card-img-top project-img" alt="MyCustomer.io">
+                        <div class="card-body">
+                            <h5 class="project-title">MyCustomer.io</h5>
+                            <p>Affiliate marketing platform for e-commerce with customer management and analytics features.</p>
+                            <div class="project-tech">
+                                <span class="tech-badge">ASP.NET Core</span>
+                                <span class="tech-badge">SQL Server</span>
+                                <span class="tech-badge">Bootstrap</span>
+                                <span class="tech-badge">SendGrid</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x300/e74c3c/ffffff?text=HomeBakers.app" class="card-img-top project-img" alt="HomeBakers.app">
+                        <div class="card-body">
+                            <h5 class="project-title">HomeBakers.app</h5>
+                            <p>Online platform connecting home bakers and customers with ordering and payment systems.</p>
+                            <div class="project-tech">
+                                <span class="tech-badge">ASP.NET MVC</span>
+                                <span class="tech-badge">SQL Server</span>
+                                <span class="tech-badge">PayPal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x300/3498db/ffffff?text=MedBotPRO" class="card-img-top project-img" alt="MedBotPRO">
+                        <div class="card-body">
+                            <h5 class="project-title">MedBotPRO</h5>
+                            <p>AI-powered healthcare assistant platform with chat/video/audio capabilities.</p>
+                            <div class="project-tech">
+                                <span class="tech-badge">ASP.NET Web Forms</span>
+                                <span class="tech-badge">SQL Server</span>
+                                <span class="tech-badge">QuickBlox API</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x300/2c3e50/ffffff?text=Hiiree.com" class="card-img-top project-img" alt="Hiiree.com">
+                        <div class="card-body">
+                            <h5 class="project-title">Hiiree.com</h5>
+                            <p>Talent acquisition and recruitment platform with candidate matching features.</p>
+                            <div class="project-tech">
+                                <span class="tech-badge">React.js</span>
+                                <span class="tech-badge">MongoDB</span>
+                                <span class="tech-badge">Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x300/e74c3c/ffffff?text=Eswop" class="card-img-top project-img" alt="Eswop">
+                        <div class="card-body">
+                            <h5 class="project-title">Eswop</h5>
+                            <p>KYC and mobile resale platform with payment automation and verification.</p>
+                            <div class="project-tech">
+                                <span class="tech-badge">ASP.NET MVC</span>
+                                <span class="tech-badge">MySQL</span>
+                                <span class="tech-badge">CashFree</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Get In Touch</h2>
+            <div class="row">
+                <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
+                    <div class="contact-info">
+                        <h3 class="mb-4">Contact Information</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5>Location</h5>
+                                <p>Delhi, India</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h5>Phone</h5>
+                                <p><a href="tel:+919811799659">+91 9811799659</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <p><a href="mailto:sandeep084991904@gmail.com">sandeep084991904@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="social-links mt-4">
+                            <a href="#" class="me-2"><i class="fab fa-github"></i></a>
+                            <a href="#" class="me-2"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="contact-form">
+                        <h3 class="mb-4">Send Me a Message</h3>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Subject">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="mb-0">© 2023 Sandeep Pal. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animate skill bars on scroll
+        function animateSkills() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width + '%';
+            });
+        }
+        
+        // Check if skills section is in view
+        function checkSkillsInView() {
+            const skillsSection = document.getElementById('skills');
+            const sectionPosition = skillsSection.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.2;
+            
+            if (sectionPosition < screenPosition) {
+                animateSkills();
+                window.removeEventListener('scroll', checkSkillsInView);
+            }
+        }
+        
+        window.addEventListener('scroll', checkSkillsInView);
+        
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
+    </script>
+</body>
+</html>
